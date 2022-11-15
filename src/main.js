@@ -35,14 +35,16 @@ async function createCards(player) {
             // console.log(power);
             // console.log(speed);
             // console.log(strength);
-            arrayHeroes.push(hero);
+            // arrayHeroes.push(hero);
 
             const newCard = document.createElement('li');
-            newCard.classList.add('revealed-card');
-            newCard.innerHTML = `<img src="${image}" alt="${name} image" class="hero-image"><h3>${name}</h3><div class="stats"><p>Combat: ${combat}</p><p>Durability: ${durability}</p><p>Intelligence: ${intelligence}</p><p>Power: ${power}</p><p>Speed: ${speed}</p><p>Strength: ${strength}</p></div>`
+            
+            newCard.innerHTML = `<img src="${image}" alt="${name} image" class="hero-image"><h3>${name}</h3><div class="stats"><p>Combat: ${combat}</p><p>Durability: ${durability}</p><p>Intelligence: ${intelligence}</p><p>Power: ${power}</p><p>Speed: ${speed}</p><p>Strength: ${strength}</p></div>`;
             if (player === 'pc') {
+                newCard.classList.add('hidden-card');
                 ulPc.appendChild(newCard)
             } else {
+                newCard.classList.add('revealed-card');
                 ulPlayer.appendChild(newCard);
             }
         }

@@ -99,6 +99,32 @@ hr {
     display: flex;
     justify-content:center;
 }
+.hidden-card {
+    width: 160px;
+    height: 220px;
+    padding: 5px;
+    border: 8px double gold;
+    /* background-color: rgb(139, 127, 59); */
+    background-image: url('./images/backgroundherovs.webp');
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 900;
+    color: rgb(27, 17, 167);
+    margin: 0 15px;
+}
+.hidden-card .hero-image {
+    display: none;
+}
+.hidden-card h3 {
+    display: none;
+}
+.hidden-card .stats {
+    display: none;
+}
 
 .revealed-card {
     width: 160px;
