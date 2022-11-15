@@ -69,8 +69,8 @@ function clean() {
     statPlay.innerHTML = '';
     pcStatValue.innerHTML = '';
     playerStatValue.innerHTML = '';
-    pcPontuation.innerHTML = `${0}<p class="point-text">Points</p>`;
-    playerPontuation.innerHTML = `${0}<p class="point-text">Points</p>`;
+    pcPontuation.innerHTML = `<p class="pontuation">${0}</p><p class="point-text">Points</p>`;
+    playerPontuation.innerHTML = `<p class="pontuation">${0}</p><p class="point-text">Points</p>`;
 }
 
 btnNewGame.addEventListener('click', () => {
@@ -83,7 +83,42 @@ const btnPlay = document.querySelector('.btn-play');
 
 btnPlay.addEventListener('click', () => {
     if (statPlay.innerHTML !== '' && playerStatValue !== '') {
+        const pcCards = ulPc.children;
+        let biggerStat = 0;
+        let position = 0;
+        console.log(pcCards);
+        for (let index = 0; index < pcCards.length; index += 1) {
+            for (let index2 = 0; index2 < 6; index2 += 1) {
+                const getStat = pcCards[index].lastElementChild.children[index2].innerHTML;
+                const choosedStat = getStat.slice(0,getStat.indexOf(':'))
+                const statValue = getStat.replace(/\D/g, '');
+                // console.log('getstat' + getStat);
+                // console.log('statPlay ' + statPlay.innerHTML);
+                if (choosedStat === statPlay.innerHTML) {
+                    // console.log(`Carta ${index}: ${choosedStat}: ${statValue}`);
+                    // console.log('statvalue ' +statValue);
+                    // console.log('bigger '+biggerStat);
+                    if (Number(statValue) > biggerStat) {
+                        biggerStat = statValue
+                        position = index;
+                    }
+                }                
+            }                      
+        }
+        pcSelectedCard.innerHTML = pcCards[position].innerHTML;
+        pcSelectedCard.style.display = 'flex';
+        pcStatValue.innerHTML = biggerStat;
+        // console.log(position);
+        // console.log(biggerStat);
 
+        if (Number(pcStatValue.innerHTML) > Number(playerStatValue.innerHTML)) {
+            const getPcPontuation = document.querySelector('.container-pc-pontuation .pontuation');
+            getPcPontuation.innerHTML = Number(getPcPontuation.innerHTML) + 10;
+        } else if (Number(pcStatValue.innerHTML) < Number(playerStatValue.innerHTML)) {
+            const getPlayerPontuation = document.querySelector('.container-player-pontuation .pontuation');
+            getPlayerPontuation.innerHTML = Number(getPlayerPontuation.innerHTML) + 10;
+        }
+        // Adicionar lógica remover as cartas e decidir o que acontece quando empatarem nos stats
     } else {
         alert('Necessário selecionar um stat.');
     }
@@ -118,7 +153,6 @@ const playerPlayedCard = document.querySelector('.player-played-card .player-car
 playerPlayedCard.addEventListener('click', (event) => {
     const getStat = event.target;
     const getStatClass = getStat.className;
-    console.log(getStat.innerText);
     if (getStatClass === 'stat') {
         const choosedStat = getStat.innerText.slice(0,getStat.innerText.indexOf(':'))
         const statValue = getStat.innerText.replace(/\D/g, '');
