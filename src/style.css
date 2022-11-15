@@ -80,8 +80,26 @@ hr {
 .btn-play {
     background-color: rgb(86, 141, 86);
 }
+.btn-play:active {
+    width: 140px;
+    height: 35px;
+    background: rgb(121, 163, 121);
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+}
 .btn-new-game {
     background-color: rgb(84, 84, 190);
+}
+.btn-new-game:active {
+    width: 140px;
+    height: 35px;
+    background: rgb(97, 97, 194);
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   /* outline: none; */
 }
 
 .container-in-play {
