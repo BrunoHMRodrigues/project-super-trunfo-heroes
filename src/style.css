@@ -66,6 +66,23 @@ hr {
     background-color: orange;
     border: none;
 }
+.hr2 {
+    width: 50px;
+}
+.btn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 900;
+}
+.btn-play {
+    background-color: rgb(86, 141, 86);
+}
+.btn-new-game {
+    background-color: rgb(84, 84, 190);
+}
 
 .container-in-play {
     width: 100%;
@@ -205,4 +222,44 @@ h3 {
 }
 .point-text {
     font-size: 14px;
+}
+
+.container-stat-choice {
+    width: 500px;
+    height: 50px;
+    border: 6px solid orange;
+    z-index: 999;
+    box-shadow: 5px 5px 8px gray;
+    font-size: 25px;
+    font-weight: 900;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pc-stat-value {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    border: 6px solid orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5px;
+}
+.player-stat-value {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    border: 6px solid orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5px;
 }
